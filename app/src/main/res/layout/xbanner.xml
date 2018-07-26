@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <cn.abr.inabr.weight.xbanner.XBanner
+        android:id="@+id/selections_xbanner"
+        android:layout_width="match_parent"
+        android:layout_height="211dp"
+        app:AutoPlayTime="3000"
+        app:tipTextColor="@color/banner_text"
+        app:pointNormal="@drawable/banner_img_unselect"
+        app:pointSelect="@drawable/banner_img_select"
+        app:isHandLoop="true"
+        app:pointsPosition="RIGHT"
+        app:pointLeftRightPadding="2dp"
+        app:pointTopBottomPadding="3dp"
+        app:placeholderDrawable="@drawable/placeholder_picture_image"
+        app:tipTextSize="16sp" />
+</LinearLayout>

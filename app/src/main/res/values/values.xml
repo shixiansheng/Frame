@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XBanner"><attr format="boolean" name="isAutoPlay"/><attr format="boolean" name="isHandLoop"/><attr format="integer|reference" name="AutoPlayTime"/><attr format="color|reference" name="pointNormal"/><attr format="color|reference" name="pointSelect"/><attr format="boolean" name="pointsVisibility"/><attr format="boolean" name="isTipsMarquee"/><attr format="enum" name="pointsPosition">
+            <enum name="LEFT" value="0"/>
+            <enum name="CENTER" value="1"/>
+            <enum name="RIGHT" value="2"/>
+        </attr><attr format="reference|color" name="pointsContainerBackground"/><attr format="enum" name="pointContainerPosition">
+            <enum name="TOP" value="10"/>
+            <enum name="BOTTOM" value="12"/>
+        </attr><attr format="dimension" name="pointContainerLeftRightPadding"/><attr format="dimension" name="pointTopBottomPadding"/><attr format="dimension" name="pointLeftRightPadding"/><attr format="reference|color" name="tipTextColor"/><attr format="dimension" name="tipTextSize"/><attr format="boolean" name="isShowNumberIndicator"/><attr format="reference" name="numberIndicatorBacgroud"/><attr format="boolean" name="isShowIndicatorOnlyOne"/><attr format="integer" name="pageChangeDuration"/><attr format="reference" name="placeholderDrawable"/></declare-styleable>
+    <item name="xbanner_pointId" type="id"/>
+</resources>

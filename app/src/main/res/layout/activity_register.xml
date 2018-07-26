@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradual_change"
+    tools:context="cn.abr.inabr.activity.RegisterActivity">
+
+    <include layout="@layout/common_top_titlebar" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="注册"
+        android:textColor="#fffffefe"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlebar_layout" />
+
+    <EditText
+        android:id="@+id/forget_inputname"
+        android:layout_width="match_parent"
+        android:maxLength="11"
+        android:layout_height="38dp"
+        android:layout_marginLeft="40dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/bg_et_user"
+        android:hint="请输入常用手机号"
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <EditText
+        android:id="@+id/forget_inputsms"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_et_user"
+        android:layout_marginLeft="40dp"
+        android:hint="请输入验证码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/forget_sms"
+        app:layout_constraintTop_toBottomOf="@+id/forget_inputname" />
+
+    <Button
+        android:id="@+id/forget_sms"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:background="@drawable/bg_btn_sms"
+        android:text="获取验证码"
+        android:textColor="#399EF4"
+        android:layout_marginLeft="8dp"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@+id/forget_inputsms"
+        app:layout_constraintLeft_toRightOf="@+id/forget_inputsms"
+        app:layout_constraintRight_toRightOf="@+id/forget_inputname"
+        app:layout_constraintTop_toTopOf="@+id/forget_inputsms" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码由6-20位英文字母、数字或符号组成"
+        app:layout_constraintTop_toBottomOf="@id/forget_sms"
+        app:layout_constraintLeft_toLeftOf="@id/forget_inputsms"
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        />
+
+    <EditText
+        android:id="@+id/register_inputpwd"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_et_user"
+        android:hint="设置密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/forget_inputname"
+        app:layout_constraintRight_toRightOf="@id/forget_inputname"
+        app:layout_constraintTop_toBottomOf="@+id/forget_inputsms" />
+
+    <EditText
+        android:id="@+id/register_inputpwdagain"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_et_user"
+        android:hint="再次输入密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/forget_inputname"
+        app:layout_constraintRight_toRightOf="@id/forget_inputname"
+        app:layout_constraintTop_toBottomOf="@+id/register_inputpwd" />
+    <Button
+        android:id="@+id/register_next"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_btn_user"
+        android:text="完成"
+        android:textSize="20sp"
+        android:textColor="#399EF4"
+        app:layout_constraintTop_toBottomOf="@+id/register_inputpwdagain" />
+</android.support.constraint.ConstraintLayout>

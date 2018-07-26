@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/common_top_titlebar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/article_recyclerView"
+        android:layout_below="@+id/titlebar_layout"
+        android:layout_above="@+id/toolbar_comment_view"
+        android:nestedScrollingEnabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

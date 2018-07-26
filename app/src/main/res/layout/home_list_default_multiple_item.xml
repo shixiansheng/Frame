@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_list_default_multiple_root_ly"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15.20dp">
+
+    <TextView
+        android:id="@+id/home_list_default_multiple_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:text="要用ps把图片截成16比9的图像,具体步骤如下: 启动ps软件,在ps里打开特定的图片;"
+        android:textColor="#FF3D3D3D"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/home_list_default_multiple_left_img"
+        android:layout_width="107.70dp"
+        android:layout_height="60.58dp"
+        android:layout_marginTop="8.65dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_list_default_multiple_title" />
+
+    <ImageView
+        android:id="@+id/home_list_default_multiple_center_img"
+        android:layout_width="107.70dp"
+        android:layout_height="60.58dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_list_default_multiple_left_img" />
+
+    <ImageView
+        android:id="@+id/home_list_default_multiple_right_img"
+        android:layout_width="107.70dp"
+        android:layout_height="60.58dp"
+        android:scaleType="fitXY"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_list_default_multiple_left_img" />
+
+    <TextView
+        android:id="@+id/home_list_default_multiple_browse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.65dp"
+        android:text="浏览 1.2w"
+        android:textColor="#FF9B9B9B"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/home_list_default_multiple_left_img"
+        app:layout_constraintTop_toBottomOf="@+id/home_list_default_multiple_left_img" />
+
+    <TextView
+        android:id="@+id/home_list_default_multiple_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="评论 175"
+        android:textColor="#FF9B9B9B"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@+id/home_list_default_multiple_browse"
+        app:layout_constraintTop_toTopOf="@+id/home_list_default_multiple_browse" />
+
+    <TextView
+        android:id="@+id/home_list_default_multiple_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-01-23"
+        android:textColor="#FF9B9B9B"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_list_default_multiple_browse" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="15.20dp"
+        android:background="#e0e0e0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_list_default_multiple_comment" />
+</android.support.constraint.ConstraintLayout>

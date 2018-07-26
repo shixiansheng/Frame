@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="cn.abr.inabr.fragment.homefragment.VideoFragment">
+  <android.support.v7.widget.CardView
+      android:id="@+id/videofragment_columnrlv"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      app:cardCornerRadius="0dp"
+      app:cardElevation="4dp">
+    <include layout="@layout/home_video_column_layout" />
+  </android.support.v7.widget.CardView>
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/videofragment_rlv"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+  </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

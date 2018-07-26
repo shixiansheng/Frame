@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="86.54dp">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/video_column_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingLeft="15.86dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/video_column_more"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/video_column_more"
+        android:layout_width="48.08dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="7.69dp"
+        android:drawableTop="@mipmap/ic_blue_add_icon"
+        android:gravity="center"
+        android:text="更多"
+        android:textColor="#39AFF9"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/ic_right_shadow"
+        app:layout_constraintBottom_toBottomOf="@+id/video_column_more"
+        app:layout_constraintRight_toLeftOf="@+id/video_column_more"
+        app:layout_constraintTop_toTopOf="@+id/video_column_more" />
+</android.support.constraint.ConstraintLayout>

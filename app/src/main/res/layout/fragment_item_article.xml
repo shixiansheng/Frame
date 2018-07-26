@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="20dp"
+   >
+    <ImageView
+        android:id="@+id/article_item_img"
+        android:layout_width="111dp"
+        android:layout_height="62dp"
+        android:src="@drawable/article_item_img"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/article_item_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/article_item_img"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:minLines="2"
+        android:text="PG One夜会李小璐 顺便做了B级车"
+        android:textColor="#ff3d3d3d"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/article_item_img"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购买时间"
+        android:textColor="#ff9b9b9b"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/article_item_title"
+        app:layout_constraintBottom_toBottomOf="@id/article_item_img"
+        />
+    <TextView
+        android:id="@+id/article_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-01-05"
+        android:textColor="#ff9b9b9b"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_time"
+        app:layout_constraintBottom_toBottomOf="@id/article_item_img"
+        android:layout_marginLeft="20dp"
+        />
+    <View
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/article_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D1D1D1"
+
+        />
+</android.support.constraint.ConstraintLayout>

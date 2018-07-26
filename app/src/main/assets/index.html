@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title></title>
+    <style>
+		*{
+			padding:0px;
+			margin:0px;
+			font-size: 12px;
+			font-family: "微软雅黑";
+			line-height:1em;
+		}
+		a{
+			text-decoration:none;
+			color:#000;
+		}
+		ul,ol{
+			list-style:none;
+		}
+		/*以上为初始化*/
+		table{
+			border-collapse:collapse;
+		}
+		td,th{
+			padding:0;
+		}
+		/*表格清除默认样式*/
+		.clearfix:after{
+			display:block;
+			content:"";
+			clear:both;}
+		.clearfix{zoom:1;}
+		/*清楚浮动*/
+		.divkakaka{
+			width:30%;
+			height:100px;
+			border:1px solid red;
+			margin:0 auto;
+		}
+		h1,h2,h3,h4,h5,h6{
+			font-size: 12px;
+			font-weight: normal;	
+		}
+		i{
+			font-style: normal;
+		}
+		b,strong{
+			font-weight: normal;
+		}
+		.fl{
+			float:left;
+		}
+		.fr{
+			float:right;
+		}
+		.box{
+			margin:0 auto;
+		}
+		img{
+			border:none;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		th,td{
+			padding:0;
+		}
+		a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+
+
+
+		#app{
+			margin: 0 auto;
+			width: 100%;
+			max-width: 750px;
+			<!--padding-bottom: 1rem;-->
+		}
+		.header_box{
+			padding: .24rem .3rem .15rem;
+		}
+		.header_box h3{
+			font-size: .42rem;
+			color: #3d3d3d;
+			line-height: .54rem;
+		}
+		.header_info{
+			padding: .23rem 0;
+			color: #9b9b9b;
+		}
+		.header_info span,.header_info i{
+			font-size: .24rem;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.header_info .fl{
+			max-width: 70%;
+		}
+		.header_info .fl span{
+			margin-right: .2rem;
+		}
+		.author{
+			max-width: 10em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		/*头图*/
+
+		.head_figure{
+			width: 100%;
+			height: 4.22rem;
+			background: #0e1a2d;
+		}
+		.head_figure img{
+			width: 100%;
+			height: 100%;
+		}
+		.content{
+			padding: 0 .3rem;
+			margin-top: .4rem;
+			margin-bottom: .4rem;
+		}
+		.introduction{
+			padding: .17rem .3rem .2rem;
+			background-color: #fff;
+			box-shadow: 0 .04rem .12rem rgba(0,0,0,.3);
+			-webkit-box-shadow: 0 .04rem .12rem rgba(0,0,0,.3);
+			-moz-box-shadow: 0 .04rem .12rem rgba(0,0,0,.3);
+			-o-box-shadow: 0 .04rem .12rem rgba(0,0,0,.3);
+			border-radius: .1rem;
+			overflow: hidden;
+			color: #3d3d3d;
+			font-size: .28rem;
+			line-height: .44rem;
+		}
+
+		/*文章内容*/
+		.art_content{
+			margin-top: .48rem;
+			padding-bottom: .33rem;
+		}
+		.art_stop{
+			height: 25rem;
+			overflow: hidden;
+		}
+		.txt_stop{
+			position: relative;
+		}
+		.art_content strong,.art_content strong span{
+			color: #3d3d3d;
+			font-size: .36rem;
+			font-weight: bold;
+		}
+
+		.art_content div,.art_content p,.art_content span{
+		   width: 100%;
+		   min-height: .28rem;
+		   line-height: .56rem;
+		   font-size: .32rem;
+		   color: #3d3d3d;
+		 }
+		 .art_content .aaa{
+			font-size:.24rem;	
+			line-height:.34rem;
+			color:#39AEF9;
+		}
+		 .art_content img{
+		   width: 100%!important;
+		 }
+
+
+    </style>
+    <script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					var clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					if(clientWidth>=750){
+						docEl.style.fontSize = '100px';
+					}else{
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					}
+				};
+
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+
+		// 标题
+	function title(str) {
+		document.getElementById('title').innerHTML = str;
+	}
+	
+	// 栏目名称
+	function column(str) {
+		document.getElementById('column').innerHTML = str;
+		document.getElementById('qc').innerHTML = '汽场';
+	}
+
+	// 头图
+	function topImg(str) {
+		document.getElementById('head_figure').src=str;
+
+	}
+	
+	// 作者
+	function author(str) {
+		document.getElementById('author').innerHTML = str;
+	}
+	
+	// 时间
+	function time(str) {
+		document.getElementById('time').innerHTML = str;
+	}
+	
+	// 阅读量
+	function readcount(str) {
+		document.getElementById('readcount').innerHTML = str;
+	}
+
+	// 文章导读
+	function introduction(str) {
+		document.getElementById('introduction').innerHTML = str;
+	}
+
+	// 文章内容
+	function content(str) {
+		// alert(str);
+		document.getElementById('content').innerHTML = str;
+		var objs = document.getElementsByTagName('img');
+		var json = {};
+		for(var i = 0; i < objs.length; i++) {
+			objs[i].onclick = function() {
+				window.imagelistener.openImage(this.src);
+			}
+			var osrc = objs[i].getAttribute('src');
+			json[i] = osrc;
+		}
+
+		// 返回文章页面所有图片
+		var jsonStr = JSON.stringify(json);
+        window.imagelistener.setimgs(jsonStr);
+	}
+
+
+    </script>
+
+</head>
+<body>
+<div id="app" v-cloak>
+
+    <div class="header_box">
+        <h3 id="title">QiChang_iOS_Title</h3>
+        <div class="header_info clearfix">
+            <div class="fl">
+                <span id="time">QiChang_iOS_Time</span>
+                <!-- <span>汽场</span> -->
+                <i class="author" id="author">QiChang_iOS_Author</i>
+            </div>
+            <div class="fr">
+                <!-- <span>阅读量</span> -->
+                <span id="readcount">QiChang_iOS_Count</span>
+            </div>
+        </div>
+    </div>
+    <!-- 头图 -->
+    <!--<div class="head_figure">
+        <img src="QiChang_iOS_HeadPic" alt="头图" id="head_figure">
+    </div>-->
+    <div class="content">
+        <div class="introduction" id="introduction">
+            QiChang_iOS_Introduction
+        </div>
+        <div class="txt_stop">
+            <div class="art_content" id="content">
+                QiChang_iOS_Content
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.abr.inabr.activity.ResetPwdActivity">
+    <include layout="@layout/common_top_titlebar" />
+    <EditText
+        android:id="@+id/binding_inputname"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@null"
+        android:hint="密码由6-20位英文字母、数字或符号组成"
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textSize="12sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlebar_layout"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="#cccccc"
+        app:layout_constraintTop_toBottomOf="@+id/binding_inputname" />
+
+    <EditText
+        android:id="@+id/binding_inputpwd"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:hint="密码由6-20位英文字母、数字或符号组成"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/binding_inputname"
+        app:layout_constraintRight_toLeftOf="@+id/binding_sms"
+        app:layout_constraintTop_toBottomOf="@+id/binding_inputname" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="#cccccc"
+        app:layout_constraintTop_toBottomOf="@+id/binding_inputpwd" />
+    <Button
+        android:id="@+id/binding_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="50dp"
+        android:text="下一步"
+        app:layout_constraintTop_toBottomOf="@+id/binding_inputpwd" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!--LoadProgressDialog样式-->
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <!-- 无标题无背景对话框主题 -->
+    <style name="MyNoFrame_Dialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!--启动白屏问题-->
+    <!--1.  加载logo  短暂白屏时间显示app Logo-->
+  <!--  <style name="Appwelcome" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/ic_launcher</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>-->
+    <!--2. 设置透明背景  白屏时间 为透明状态 桌面可见  这时app 其实已经启动-->
+      <style name="AppTheme.Welcome" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+          <item name="android:background">@android:color/transparent</item>
+      </style>
+    <!--editText 下划线颜色 -->
+    <style name="AppTheme.MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#39AEF9</item>
+        <item name="colorControlActivated">#39AEF9</item>
+    </style>
+</resources>

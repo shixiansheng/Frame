@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_comment_view"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:layout_alignParentBottom="true"
+    android:background="#fafafa">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#e0e0e0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/videos_toolbar_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/videos_toolbar_edittext_style"
+                android:gravity="center_vertical"
+                android:onClick="send_comment"
+                android:paddingLeft="12dp"
+                android:textColor="#9B9B9B"
+                android:text="说点什么吧..."
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/videos_toolbar_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:onClick="comment"
+                android:src="@mipmap/article_comment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/videos_toolbar_love"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/videos_toolbar_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="like"
+                android:src="@mipmap/article_like"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/videos_toolbar_comment"
+                app:layout_constraintRight_toLeftOf="@+id/videos_toolbar_collect"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/videos_toolbar_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="collect"
+                android:src="@mipmap/article_collection"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/videos_toolbar_love"
+                app:layout_constraintRight_toLeftOf="@+id/videos_toolbar_share"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/videos_toolbar_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="14dp"
+                android:onClick="share"
+                android:src="@mipmap/article_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/videos_toolbar_collect"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/videos_toolbar_commentcount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:maxLength="4"
+                android:layout_marginTop="6dp"
+                android:text=""
+                android:textColor="#FF4244"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/videos_toolbar_comment"
+                app:layout_constraintLeft_toRightOf="@+id/videos_toolbar_comment" />
+
+            <TextView
+                android:id="@+id/videos_toolbar_lovecount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/article_comment_countbg"
+                android:maxLength="5"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/videos_toolbar_love"
+                app:layout_constraintLeft_toLeftOf="@+id/videos_toolbar_love" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</RelativeLayout>

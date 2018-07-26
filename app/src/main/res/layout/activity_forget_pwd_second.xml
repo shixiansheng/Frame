@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradual_change"
+    tools:context="cn.abr.inabr.activity.ForgetPwdActivity">
+
+    <include layout="@layout/common_top_titlebar"
+        />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="密码找回2/2"
+        android:textColor="#fffffefe"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlebar_layout" />
+
+    <EditText
+        android:id="@+id/forgetsecond_inputpwd"
+        android:layout_width="match_parent"
+        android:maxLength="11"
+        android:layout_height="38dp"
+        android:layout_marginLeft="40dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/bg_et_user"
+        android:hint="设置密码"
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <EditText
+        android:id="@+id/forgetsecond_inputpwdsecond"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_et_user"
+        android:hint="再次输入密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#b0dffd"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@+id/forgetsecond_inputpwd"
+        app:layout_constraintRight_toRightOf="@id/forgetsecond_inputpwd"
+        app:layout_constraintTop_toBottomOf="@+id/forgetsecond_inputpwd" />
+
+
+    <Button
+        android:id="@+id/forgetsecond_next"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="238dp"
+        android:background="@drawable/bg_btn_user"
+        android:text="完成"
+        android:textSize="20sp"
+        android:textColor="#399EF4"
+        app:layout_constraintTop_toBottomOf="@+id/forgetsecond_inputpwdsecond" />
+</android.support.constraint.ConstraintLayout>

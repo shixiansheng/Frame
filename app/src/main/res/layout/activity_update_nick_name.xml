@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.abr.inabr.activity.UpdateNickNameActivity">
+    <include layout="@layout/common_top_titlebar"/>
+    <EditText
+        android:id="@+id/binding_inputpwd"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_et_updatenickname"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="用户名989898"
+        android:drawableRight="@drawable/icon_close"
+        android:paddingRight="10dp"
+        android:letterSpacing="0.1"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#a7a7a7"
+        android:textSize="15sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="以英文字母或汉字开头，限4-16个字符，一个汉字为2个字符"
+        android:textColor="#ff39aff9"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="12dp"
+        android:textSize="10sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bg_btn_blue"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFF"
+        android:text="完成"
+        />
+</LinearLayout>

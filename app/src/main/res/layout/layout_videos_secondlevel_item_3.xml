@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/videos_secondlevel_item3_click"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:clickable="true"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <RelativeLayout
+        android:id="@+id/user_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/videos_secondlevel_item3_userclick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/videos_secondlevel_item_3_head"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_head_portrait_image" />
+
+            <TextView
+                android:id="@+id/videos_secondlevel_item_3_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/videos_secondlevel_item_3_head"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#666666"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/videos_secondlevel_item_3_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/unlike_comment"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="0"
+            android:minWidth="50dp"
+            android:maxWidth="50dp"
+            android:textColor="#ababab"
+            android:textSize="9sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/videos_secondlevel_item_3_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_layout"
+        android:layout_below="@+id/user_layout"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textColor="#3D3D3D"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:id="@+id/videos_secondlevel_item_3_childcontent"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone"
+        android:layout_marginRight="12.5dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/videos_secondlevel_item_3_content"
+        android:text=""
+        android:textColor="#A4A4A4"
+        android:textSize="12sp"
+        />
+
+
+    <TextView
+        android:id="@+id/videos_secondlevel_item_3_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/videos_secondlevel_item_3_content"
+        android:layout_below="@+id/videos_secondlevel_item_3_childcontent"
+        android:layout_marginTop="12.5dp"
+        android:text=""
+        android:textColor="#9B9B9B"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/videos_secondlevel_item_3_reply"
+        android:layout_width="wrap_content"
+        android:padding="2dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/videos_secondlevel_item_3_time"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/videos_secondlevel_item_3_time"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#3BA5EC"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:visibility="gone"
+        android:layout_below="@+id/videos_secondlevel_item_3_time"
+        android:layout_marginTop="12.5dp"
+        android:background="#e0e0e0" />
+
+</RelativeLayout>

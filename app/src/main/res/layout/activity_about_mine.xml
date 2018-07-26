@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.abr.inabr.activity.AboutMineActivity">
+
+    <include layout="@layout/common_top_titlebar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/roundimage_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="版本号   V1.1.0"
+        android:textColor="#ff3d3d3d"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:text="公司简介"
+        android:textColor="#ff3d3d3d"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:text="最关键的是传播沟通是“特立独行的汽车传播与沟通平台”
+它的三个关键标签则是：报道最值得报道的产业动向、评论最值得评论的汽车产品、链接最值得链接的人与人."
+        android:textColor="#ff707070"
+        android:textSize="12sp" />
+    <View
+        android:layout_marginTop="29dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd1d1d1"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#fff3f3f3"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd1d1d1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地址：北京市朝阳区酒仙桥xxx3号楼7600"
+        android:textColor="#ff3d3d3d"
+        android:textSize="12sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邮箱：ndjdijskosks@jkjj"
+        android:textColor="#ff3d3d3d"
+        android:textSize="12sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电话：010-1234567"
+        android:textColor="#ff3d3d3d"
+        android:textSize="12sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd1d1d1"
+        android:layout_marginTop="15dp"
+    />
+</LinearLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/home_list_large_special_img_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2.4dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/home_list_large_special_img"
+                android:layout_width="0dp"
+                android:layout_height="185.58dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_list_large_special_label"
+                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/ic_special_label_img"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="专题"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/home_list_large_special_img"
+                app:layout_constraintTop_toTopOf="@id/home_list_large_special_img" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+    <!--
+        <View
+            android:layout_width="0dp"
+            android:layout_height="6.25dp"
+            android:background="@mipmap/ic_home_listspecial_shadow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_list_large_special_img" />
+    -->
+
+    <TextView
+        android:id="@+id/home_list_large_special_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19.20dp"
+        android:maxLines="3"
+        android:text="要用ps把图片截成16比9的图像,具体步骤如下: 启动ps软件,在ps里打开特定的图片;"
+        android:textColor="#404040"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_list_large_special_img_layout" />
+
+    <TextView
+        android:id="@+id/home_list_large_special_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="玩无止境止无止境"
+        android:textColor="#868686"
+        android:gravity="right"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_list_large_special_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#e0e0e0"
+        app:layout_constraintTop_toBottomOf="@id/home_list_large_special_intro" />
+
+</android.support.constraint.ConstraintLayout>

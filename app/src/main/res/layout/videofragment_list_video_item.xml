@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_video_list_default_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:paddingBottom="10dp">
+
+    <cn.abr.inabr.weight.videoplayer.SampleCoverVideo
+        android:id="@+id/vdieofragment_list_samplevideo"
+        android:layout_width="0dp"
+        android:layout_height="210dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/vdieofragment_list_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16.35dp"
+        android:layout_marginRight="20dp"
+        android:text="04:30"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vdieofragment_list_samplevideo"
+        app:layout_constraintRight_toRightOf="@+id/vdieofragment_list_samplevideo" />
+
+    <TextView
+        android:id="@+id/vdieofragment_list_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:text="15年苦等五粮液圆梦汽车，未来却或是虎口"
+        android:textColor="#404040"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vdieofragment_list_samplevideo" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        app:riv_corner_radius="5dp"
+        android:id="@+id/vdieofragment_list_column_img"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/tim_g"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="@+id/vdieofragment_list_title"
+        app:layout_constraintTop_toBottomOf="@+id/vdieofragment_list_title" />
+
+    <TextView
+        android:id="@+id/vdieofragment_list_column_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="DK"
+        android:textColor="#3BA5EC"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vdieofragment_list_column_img"
+        app:layout_constraintLeft_toRightOf="@+id/vdieofragment_list_column_img"
+        app:layout_constraintTop_toTopOf="@+id/vdieofragment_list_column_img" />
+
+    <TextView
+        android:id="@+id/vdieofragment_list_commentcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="评论 36"
+        android:textColor="#868686"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vdieofragment_list_column_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vdieofragment_list_column_img" />
+
+    <TextView
+        android:id="@+id/vdieofragment_list_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15.38dp"
+        android:text="2018 01 26"
+        android:textColor="#868686"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vdieofragment_list_column_img"
+        app:layout_constraintRight_toLeftOf="@+id/vdieofragment_list_share"
+        app:layout_constraintTop_toTopOf="@+id/vdieofragment_list_column_img" />
+
+    <ImageView
+        android:id="@+id/vdieofragment_list_share"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_blue_share_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/vdieofragment_list_column_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vdieofragment_list_column_img" />
+</android.support.constraint.ConstraintLayout>
