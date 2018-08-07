@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 
 public abstract class EndlessRecyclerOnScrollListener extends OnScrollListener {
+
 	private int previousTotal = 0;
 
 	private boolean loading = true;

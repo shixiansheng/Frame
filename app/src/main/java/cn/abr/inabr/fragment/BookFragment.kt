@@ -24,7 +24,6 @@ class BookFragment : BaseLazyFragment<HomePresenter>() {
         get() = R.layout.booksfragment_main
 
     override fun initView() {
-
     }
 
     override fun notLazy(): Boolean {

@@ -18,7 +18,7 @@ object Api {
 
     val SAVE_HOME_PAGE_NAVIGATION_BAR_URL = BuildConfig.QCV_URL +"home/myNBar"//保存导航栏修改后状态
 
-    val GET_NEWS_DETAILS_URL = BuildConfig.QCV_URL +"Content/getNews/{id}"//文章详情
+    val GET_NEWS_DETAILS_URL = BuildConfig.QCV_URL +"Content/getNews/"//文章详情+id
 
     val GET_VIDEO_COLUMNS_URL = BuildConfig.QCV_URL +"column/3" //视频栏目
 

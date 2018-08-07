@@ -22,7 +22,6 @@ import cn.abr.inabr.entity.VideoColumnEntity
 import cn.abr.inabr.mvp.presenter.VideoPresenter
 import cn.abr.inabr.mvp.view.VideoView
 import com.shuyu.gsyvideoplayer.GSYVideoManager
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper
 import kotlinx.android.synthetic.main.fragment_video.*
 import kotlinx.android.synthetic.main.home_video_column_layout.*
@@ -49,6 +48,7 @@ class VideoFragment : BaseLazyFragment<VideoPresenter>(), VideoView {
         if (response.Data?.size!=0) {
             datalist.addAll(response.Data!!)
             videofragment_rlv.adapter.notifyDataSetChanged()
+            statusLayoutManager?.showContent()
         }else {
             isAll=true
             showToast("加载完毕")
@@ -101,9 +101,11 @@ class VideoFragment : BaseLazyFragment<VideoPresenter>(), VideoView {
     }
 
     override val layoutId: Int
-        get() = R.layout.fragment_video
+        get() = R.layout.base_layout
 
     override fun initView() {
+        initLayoutManager(R.layout.fragment_video)
+        statusLayoutManager?.showLoading()
     }
 
     override fun inject() {

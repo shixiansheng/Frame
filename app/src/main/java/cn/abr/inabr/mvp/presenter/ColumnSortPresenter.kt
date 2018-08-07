@@ -15,7 +15,7 @@ import javax.inject.Inject
  */
 
 class ColumnSortPresenter @Inject
-constructor(mView: DataView<BaseEntity<List<EmptyEntity>>>) : BasePresenter<DataView<BaseEntity<List<EmptyEntity>>>>(mView) {
+constructor(override var mView: DataView<BaseEntity<List<EmptyEntity>>>?) : BasePresenter<DataView<BaseEntity<List<EmptyEntity>>>> {
 
     @Inject
     lateinit var columnSortModel: ColumnSortModel
@@ -26,6 +26,9 @@ constructor(mView: DataView<BaseEntity<List<EmptyEntity>>>) : BasePresenter<Data
         columnSortModel.saveHomeTopBar(myBar, object : ResultCallback<BaseEntity<List<EmptyEntity>>>() {
             override fun onResponse(response: BaseEntity<List<EmptyEntity>>, json: String) {
                 mView!!.showData(response)
+            }
+
+            override fun onFailure(t: Throwable) {
             }
         })
     }

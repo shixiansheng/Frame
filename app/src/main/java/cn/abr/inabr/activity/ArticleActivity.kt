@@ -12,6 +12,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.LinearLayout
+import android.widget.Toast
 import cn.abr.inabr.R
 import cn.abr.inabr.adapter.ArticleAdapter
 import cn.abr.inabr.base.BaseEntity
@@ -23,6 +24,7 @@ import cn.abr.inabr.entity.CommentEntity
 import cn.abr.inabr.entity.EmptyEntity
 import cn.abr.inabr.entity.SelectionsListEntity
 import cn.abr.inabr.listener.EndlessRecyclerOnScrollListener
+import cn.abr.inabr.mvp.contract.ArticleContract
 import cn.abr.inabr.mvp.presenter.ArticlePresenter
 import cn.abr.inabr.mvp.view.ArticleContentView
 import cn.abr.inabr.utils.ContactPlugin
@@ -32,7 +34,13 @@ import kotlinx.android.synthetic.main.activity_article.*
 import java.util.*
 
 
-class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleContentView {
+class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleContract.View {
+    override fun showProgress() {
+
+    }
+
+    override fun hideProgress() {
+    }
 
     override fun sendComment(response: BaseEntity<List<EmptyEntity>>) {
         if (response.Data?.first()?.res.equals("1")) {
@@ -41,7 +49,6 @@ class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleConten
     }
 
     override fun showComment(response: BaseEntity<List<CommentEntity>>) {
-
         commentlist.addAll(response.Data!!)
         article_recyclerView.adapter.notifyDataSetChanged()
         hideLoadingProgress()
@@ -89,9 +96,9 @@ class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleConten
 
     override fun inject() {
         DaggerArticleComponent.builder().articleModule(ArticleModule(this)).build().inject(this)
-    }
+}
 
-    private var mAgentWeb: AgentWeb? = null
+    private lateinit var mAgentWeb: AgentWeb
 
 
     override fun initView() {
@@ -150,7 +157,7 @@ class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleConten
             super.onPageFinished(view, url)
             //js 加载数据
             if (article.size > 0)
-                ContactPlugin.setData(article[0], view)
+                ContactPlugin().setData(article[0], view)
 
             //解决webView在ScrollView中高度显示不全问题
             view.measure(0, 0)
@@ -190,18 +197,17 @@ class ArticleActivity : BasePresenterActivity<ArticlePresenter>(), ArticleConten
 
 
     override fun onPause() {
-        mAgentWeb!!.webLifeCycle.onPause()
+        mAgentWeb.webLifeCycle.onPause()
         super.onPause()
-
     }
 
     override fun onResume() {
-        mAgentWeb!!.webLifeCycle.onResume()
+        mAgentWeb.webLifeCycle.onResume()
         super.onResume()
     }
 
     override fun onDestroy() {
-        mAgentWeb!!.webLifeCycle.onDestroy()
+        mAgentWeb.webLifeCycle.onDestroy()
         super.onDestroy()
     }
 

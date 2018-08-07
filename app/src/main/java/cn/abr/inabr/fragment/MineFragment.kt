@@ -33,6 +33,8 @@ class MineFragment : BaseLazyFragment<HomePresenter>(), View.OnClickListener {
     override fun setListener() {
     }
 
+
+
     override var arrayOfClick: Array<out View>?
         get() = arrayOf(minefragment_name,minefragment_icon,minefragment_settings)
         set(value) {}

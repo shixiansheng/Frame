@@ -2,7 +2,9 @@ package cn.abr.inabr.fragment
 
 
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.view.View
+import android.view.ViewGroup
 import cn.abr.inabr.*
 import cn.abr.inabr.activity.ColumnSortActivity
 import cn.abr.inabr.adapter.HomePageAdapter
@@ -13,8 +15,9 @@ import cn.abr.inabr.dagger2.module.HomeModule
 import cn.abr.inabr.entity.HomeTopBarEntity
 import cn.abr.inabr.mvp.presenter.HomePresenter
 import cn.abr.inabr.mvp.view.HomeTopBarView
+import com.wf.statusmanager.OnStatusChildClickListener
+import com.wf.statusmanager.StatusViewManager
 import kotlinx.android.synthetic.main.homefragment_main.*
-import kotlinx.android.synthetic.main.layout_netword_connection_failed.*
 
 /**
  * .
@@ -42,14 +45,33 @@ class HomeFragment : BaseLazyFragment<HomePresenter>(), HomeTopBarView, View.OnC
         get() = R.layout.homefragment_main
 
     override fun initView() {
+        statusViewManager = StatusViewManager.Builder(homepage_vp)
+                .setOnStatusChildClickListener(object :OnStatusChildClickListener{
+                    override fun onEmptyChildClick(view: View?) {
 
+                    }
+
+                    override fun onErrorChildClick(view: View?) {
+                        statusViewManager.showErrorLayout()
+                        mPresenter.getHomeTopBar()
+                    }
+
+                    override fun onCustomerChildClick(view: View?) {
+                    }
+
+                })
+                .build()
+        //statusViewManager.showLoadingLayout()
     }
+
+
+    private lateinit var statusViewManager: StatusViewManager
 
     override fun setListener() {
     }
 
     override var arrayOfClick: Array<out View>?
-        get() = arrayOf(homepage_topbar_sort,homepage_topbar_search,loadfail_error_click_layout)
+        get() = arrayOf(homepage_topbar_sort,homepage_topbar_search)
         set(value) {}
 
     override fun onClick(v: View?) {
@@ -63,12 +85,6 @@ class HomeFragment : BaseLazyFragment<HomePresenter>(), HomeTopBarView, View.OnC
             }
             R.id.homepage_topbar_search -> {
             }
-            R.id.loadfail_error_click_layout -> {
-                GONE(loadfail_error_click_layout)
-                VISIBLE(loadfail_progressbar)
-                mPresenter.getHomeTopBar()
-            }
-
         }
     }
 
@@ -88,14 +104,12 @@ class HomeFragment : BaseLazyFragment<HomePresenter>(), HomeTopBarView, View.OnC
     }
 
     override fun showHomeTopBar(t: BaseEntity<List<HomeTopBarEntity>>) {
-        VISIBLE(homepage_vp)
-        GONE(layout_failure)
         setViewPager(t)
+        statusViewManager.showSuccessLayout()
     }
 
     override fun onFailure(t: Throwable) {
-        GONE(loadfail_progressbar)
-        VISIBLE(loadfail_error_click_layout)
+        statusViewManager.showErrorLayout()
     }
 
     private fun setViewPager(t: BaseEntity<List<HomeTopBarEntity>>) {

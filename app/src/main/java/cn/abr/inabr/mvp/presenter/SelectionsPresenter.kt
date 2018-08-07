@@ -14,7 +14,7 @@ import javax.inject.Inject
  * Created by Administrator on 2018/4/24/024.
  */
 class SelectionsPresenter @Inject
-constructor(mView: SelectionsView) : BasePresenter<SelectionsView>(mView){
+constructor(override var mView: SelectionsView?) : BasePresenter<SelectionsView>{
 
     @Inject
     lateinit var selectionsModel: SelectionsModel

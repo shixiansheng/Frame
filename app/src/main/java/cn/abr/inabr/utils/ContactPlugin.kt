@@ -12,15 +12,15 @@ import cn.abr.inabr.entity.ArticleContentEntity
  *
  * @author Administrator
  */
-object ContactPlugin {
+class ContactPlugin {
 
-    private var mWebView: WebView? = null
+    private lateinit var mWebView: WebView
 
-    fun setData(data: ArticleContentEntity?, WebView: WebView) {
+    fun setData(data: ArticleContentEntity?, webView: WebView) {
         if (data == null) {
             return
         }
-        ContactPlugin.mWebView = WebView
+        mWebView = webView
         setTopImg(data.pic)
         setTitle(data.title)
         //setColumn(data.getClassName());

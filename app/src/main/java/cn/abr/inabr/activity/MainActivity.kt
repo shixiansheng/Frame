@@ -1,7 +1,9 @@
 package cn.abr.inabr.activity
 
 import android.os.Build
+import android.os.Environment
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.KeyEvent
 import android.widget.LinearLayout
 import cn.abr.inabr.R
@@ -57,7 +59,7 @@ class MainActivity : BaseActivity(), OnTabSelectListener {
     }
 
     private fun initTab() {
-        GONE( main_tablayout.getTitleView(0))
+        GONE(main_tablayout.getTitleView(0))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val linearLayout = main_tablayout.getChildAt(0) as LinearLayout
             var i = 0
@@ -92,12 +94,12 @@ class MainActivity : BaseActivity(), OnTabSelectListener {
     }
 
 
-
     //记录用户首次点击返回键的时间
     private var firstTime: Long = 0
+
     //双击退出
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() === KeyEvent.ACTION_DOWN) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.action === KeyEvent.ACTION_DOWN) {
             if (System.currentTimeMillis() - firstTime > 2000) {
                 Toast.makeText(this@MainActivity, "再按一次退出程序!", Toast.LENGTH_SHORT).show()
                 firstTime = System.currentTimeMillis()

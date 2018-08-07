@@ -2,6 +2,7 @@ package cn.abr.inabr.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import com.zhy.autolayout.AutoLayoutActivity
 
 
@@ -27,15 +28,20 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
     abstract fun initListener()
     abstract val initLayout: Int
     open var arrayOfClick: Array<out View>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(initLayout)
+        val view = LayoutInflater.from(this@BasePresenterActivity).inflate(initLayout, null, false)
+        setContentView(view)
+
+
         loadingDialog = LoadingDialog(this, R.style.progress_dialog)
         initOptions()
-        if (arrayOfClick!=null) {
+        if (arrayOfClick != null) {
             setOnclickListener(*arrayOfClick!!)
         }
     }
+
     private fun initOptions() {
         initStatusBar(ImmersionBar.with(this))
         inject()
@@ -59,7 +65,7 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
     }
 
 
-    private fun setOnclickListener(vararg v: View){
+    private fun setOnclickListener(vararg v: View) {
         v.forEach {
             it.setOnClickListener(this)
         }
@@ -68,6 +74,7 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
     open fun back(v: View): Unit {
         finish()
     }
+
     open fun share(v: View): Unit {
     }
 
@@ -76,17 +83,19 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
 
     fun GONE(vararg v: View): Unit {
         v.forEach {
-            it.visibility= GONE
+            it.visibility = GONE
         }
     }
+
     fun VISIBLE(vararg v: View): Unit {
         v.forEach {
-            it.visibility= VISIBLE
+            it.visibility = VISIBLE
         }
     }
+
     fun INVISIBLE(vararg v: View): Unit {
         v.forEach {
-            it.visibility= INVISIBLE
+            it.visibility = INVISIBLE
         }
     }
 
@@ -108,7 +117,7 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
      * @param msg
      */
     fun showToast(msg: String) {
-        ToastUtil.show(this,msg)
+        ToastUtil.show(this, msg)
     }
 
     /**
@@ -130,7 +139,7 @@ abstract class BasePresenterActivity<P : BasePresenter<*>> : AutoLayoutActivity(
 
     override fun onDestroy() {
         super.onDestroy()
-            mPresenter?.detach()
+        mPresenter?.detach()
         ImmersionBar.with(this).destroy()
         App.Instance().getRefWatcher()
                 .apply {

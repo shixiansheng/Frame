@@ -10,7 +10,7 @@ import cn.abr.inabr.mvp.model.VideoModel
 import cn.abr.inabr.mvp.view.VideoView
 import javax.inject.Inject
 
-class VideoPresenter @Inject constructor(mView: VideoView) : BasePresenter<VideoView>(mView) {
+class VideoPresenter @Inject constructor(override var mView: VideoView?) : BasePresenter<VideoView> {
     @Inject
     lateinit var model: SelectionsModel
     @Inject

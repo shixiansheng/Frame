@@ -16,7 +16,7 @@ import javax.inject.Inject
  */
 
 class HomePresenter @Inject
-constructor(mView: HomeTopBarView) : BasePresenter<HomeTopBarView>(mView) {
+constructor(override var mView: HomeTopBarView?) : BasePresenter<HomeTopBarView> {
 
     @Inject
      lateinit var homeModel: HomeModel

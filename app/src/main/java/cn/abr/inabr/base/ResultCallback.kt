@@ -19,6 +19,8 @@ abstract class ResultCallback<in T> {
     }
 
     abstract fun onResponse(response: T, json: String)
+    open fun onStart(){}
+    open fun onComplete(){}
     open fun onFailure(t: Throwable) {
 
     }

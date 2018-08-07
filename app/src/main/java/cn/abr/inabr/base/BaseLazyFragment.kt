@@ -3,6 +3,7 @@ package cn.abr.inabr.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.util.SparseArray
@@ -12,8 +13,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import cn.abr.inabr.R
 import cn.abr.inabr.common.App
-import cn.abr.inabr.weight.LoadingDialog
-import com.orhanobut.logger.Logger
+import example.wf.com.statuslayoutmanager.StatusLayoutManager
+import kotlinx.android.synthetic.main.base_layout.*
 import javax.inject.Inject
 
 abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClickListener {
@@ -26,8 +27,7 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
     private var visible = false//当前是否可见
     private var isInitView = false//是否与View建立起映射关系
     private var isFirstLoad = true//是否是第一次加载数据
-    var convertView: View? = null
-
+    lateinit var convertView: View
     @Inject
     lateinit var mPresenter: P
     /**
@@ -37,10 +37,10 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
     protected abstract val layoutId: Int
     open var arrayOfClick: Array<out View>? = null
     private var mViews: SparseArray<View>? = null
-
+    protected  var statusLayoutManager: StatusLayoutManager?=null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.e("Fragment", "   " + this.javaClass.simpleName)
-        convertView = inflater!!.inflate(layoutId, container, false)
+        convertView = LayoutInflater.from(activity).inflate(layoutId, container, false)
         mViews = SparseArray()
         isInitView = true
         return convertView
@@ -50,6 +50,7 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
         super.onViewCreated(view, savedInstanceState)
         Log.e("Fragment", "   " + this.javaClass.simpleName)
     }
+
 
     /**
      * 让布局中的view与fragment中的变量建立起映射
@@ -85,32 +86,20 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
         }
     }
 
-    fun showLoadingProgress(): Unit {
-        if (!loadingDialog!!.isShowing)
-            loadingDialog!!.show()
-    }
-
-    fun hideLoadingProgress(): Unit {
-        if (loadingDialog!!.isShowing)
-            loadingDialog!!.dismiss()
-    }
 
     open fun notLazy(): Boolean {
         return false
     }
 
-    private var loadingDialog: LoadingDialog? = null
 
     override fun onDestroy() {
         super.onDestroy()
-        setNull(loadingDialog)
-        if (mPresenter != null)
-            mPresenter.detach()
+        mPresenter.detach()
 
         App.Instance().getRefWatcher()
                 .apply {
-                watch(mPresenter)
-                watch(this@BaseLazyFragment)
+                    watch(mPresenter)
+                    watch(this@BaseLazyFragment)
                 }
 
     }
@@ -122,14 +111,21 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        if (loadingDialog == null)
-            loadingDialog = LoadingDialog(activity, R.style.progress_dialog)
         inject()
         initView()
         if (notLazy()) initData() else lazyLoadData()
         setListener()
         if (arrayOfClick != null)
             setOnclickListener(*arrayOfClick!!)
+    }
+
+    open fun initLayoutManager(@LayoutRes contentViewId:Int) {
+        statusLayoutManager = StatusLayoutManager.newBuilder(activity)
+                .contentView(contentViewId)
+                .loadingView(R.layout.loading)
+                .errorView(R.layout.error)
+                .build()
+        (convertView as ViewGroup).addView(statusLayoutManager?.rootLayout)
     }
 
     private fun setOnclickListener(vararg v: View) {
@@ -141,7 +137,6 @@ abstract class BaseLazyFragment<P : BasePresenter<*>> : Fragment(), View.OnClick
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         Log.e("Fragment", "context" + "   " + this.javaClass.simpleName)
-
     }
 
 

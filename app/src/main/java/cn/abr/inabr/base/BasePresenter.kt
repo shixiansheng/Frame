@@ -7,7 +7,9 @@ import javax.inject.Inject
  * @Description: ${TODO}(用一句话描述该文件做什么)
  */
 
-open class BasePresenter<P>(var mView: P?) {
+ interface BasePresenter<P> {
+
+    var mView: P?
 
     fun detach() {
         mView = null

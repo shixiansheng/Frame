@@ -15,8 +15,7 @@ import javax.inject.Inject
  * @Description: ${TODO}(用一句话描述该文件做什么)
  */
 
-open class BaseModel @Inject
-constructor() {
+open class BaseModel {
 
     private val map = SimpleArrayMap<String, String>()
 
@@ -35,7 +34,6 @@ constructor() {
     fun getResponse(path: String, resultCallBack: ResultCallback<*>) {
         RetrofitManager.Instance.request(path, map, resultCallBack)
     }
-
     fun getResponse(path: String, requestBody: RequestBody, resultCallBack: ResultCallback<*>) {
         RetrofitManager.Instance.upload(path, requestBody, resultCallBack)
     }

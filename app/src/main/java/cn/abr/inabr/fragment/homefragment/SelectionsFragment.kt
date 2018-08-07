@@ -5,20 +5,20 @@ import android.os.Bundle
 import android.app.Fragment
 import android.content.pm.ActivityInfo.*
 import android.content.res.Configuration
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 
 import cn.abr.inabr.R
-import cn.abr.inabr.activity.MainActivity
 import cn.abr.inabr.adapter.itemdelagate.*
 import cn.abr.inabr.base.BaseEntity
 import cn.abr.inabr.base.BaseLazyFragment
 import cn.abr.inabr.base.BaseMultiItemTypeAdapter
-import cn.abr.inabr.common.Api
 import cn.abr.inabr.dagger2.component.DaggerSelectionsComponent
 import cn.abr.inabr.dagger2.module.SelectionsModule
 import cn.abr.inabr.entity.BannerEntity
@@ -26,11 +26,12 @@ import cn.abr.inabr.entity.SelectionsListEntity
 import cn.abr.inabr.mvp.presenter.SelectionsPresenter
 import cn.abr.inabr.mvp.view.SelectionsView
 import cn.abr.inabr.utils.GlideUtils
-import cn.abr.inabr.utils.ToastUtil
 import cn.abr.inabr.weight.xbanner.XBanner
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper
+import example.wf.com.statuslayoutmanager.StatusLayoutManager
+import kotlinx.android.synthetic.main.base_layout.*
 import kotlinx.android.synthetic.main.fragment_selections.*
 
 
@@ -57,6 +58,7 @@ class SelectionsFragment : BaseLazyFragment<SelectionsPresenter>(), SelectionsVi
         if (response.Data?.size!=0) {
             datalist.addAll(response.Data!!)
             selections_recyclerView.adapter.notifyDataSetChanged()
+            statusLayoutManager?.showContent()
         }else
         {
             isAll=true
@@ -117,14 +119,18 @@ class SelectionsFragment : BaseLazyFragment<SelectionsPresenter>(), SelectionsVi
     }
 
     override val layoutId: Int
-        get() = R.layout.fragment_selections
+        get() =R.layout.base_layout
 
     lateinit var inflate: View
     override fun initView() {
+        initLayoutManager(R.layout.fragment_selections)
+        statusLayoutManager?.showLoading()
         inflate = LayoutInflater.from(activity).inflate(R.layout.xbanner, null, false)
         selections_xbanner = inflate.findViewById<XBanner>(R.id.selections_xbanner)
         selections_xbanner!!.visibility = View.GONE
     }
+
+
 
 
     override fun inject() {
@@ -133,8 +139,8 @@ class SelectionsFragment : BaseLazyFragment<SelectionsPresenter>(), SelectionsVi
 
     override fun initData() {
         datalist = arrayListOf()
-        requestData()
         initAdapter()
+        requestData()
     }
 
     private fun initAdapter() {

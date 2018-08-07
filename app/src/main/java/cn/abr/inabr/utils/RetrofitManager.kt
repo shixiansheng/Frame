@@ -74,6 +74,7 @@ class RetrofitManager {
     }
 
     fun request(path: String, map: SimpleArrayMap<String, String>, callback: ResultCallback<*>): Unit {
+        callback.onStart()
         val execute = execute(path, map)
         execute?.subscribe(
                 {
@@ -81,11 +82,9 @@ class RetrofitManager {
                         val json = it.string()
                         if (!TextUtils.isEmpty(json))
                             callback.onResponse(GsonUtils.Instance.fromJson(json, callback.mType)!!, json)
-                        else callback.onFailure(Throwable("服务器异常!!!").apply {
-
-                        })
+                        else callback.onFailure(Throwable("服务器异常!!!"))
                     }
-                }, callback::onFailure
+                }, callback::onFailure,callback::onComplete
         )
     }
 
@@ -105,7 +104,7 @@ class RetrofitManager {
         execute(path, map)?.subscribe(observer)
     }
 
-    fun request(path: String, map: SimpleArrayMap<String, String>, observer: Observer<ResponseBody>) {
+    fun  request(path: String, map: SimpleArrayMap<String, String>, observer: Observer<ResponseBody>) {
         execute(path, map)?.subscribe(observer)
     }
 }
